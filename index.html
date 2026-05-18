@@ -1,23 +1,829 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Car",
+          "@id": "https://example.com/korando-guide#car",
+          "name": "SsangYong Korando",
+          "model": [
+            "Korando C", "Korando Sports", "Korando e-Motion", "Korando Family",
+            "Korando C300", "Korando 2.2 e-XDi", "Korando 1.5 T-GDI", "Korando 2.0 Diesel",
+            "Korando 3-door", "Korando 5-door", "Korando Cabrio"
+          ],
+          "manufacturer": {
+            "@type": "Organization",
+            "name": "KGM (formerly SsangYong Motor)",
+            "url": "https://kg-mobility.co.kr/"
+          },
+          "description": "The SsangYong Korando is a compact SUV known for its versatility and Korean origin. Available in various generations and configurations, it offers a balance of utility, comfort, and off-road capability, making it a popular choice for individuals and families seeking a reliable vehicle. Its name, 'Korea Can Do', reflects its enduring legacy and adaptability.",
+          "keywords": "SsangYong Korando, 코란도, 코란도 유지비, 코란도 자동차리스, 코란도 장기렌트카, SUV, 컴팩트 SUV, 4WD, 디젤, 가솔린, 전기차, KGM, 쌍용자동차, 차량 관리, 차량 구매, 신차, 중고차, 합리적 가격, 가성비, 2026년"
+        },
+        {
+          "@type": "Service",
+          "name": "SsangYong Korando 자동차 리스",
+          "serviceType": "Automotive Leasing",
+          "provider": {
+            "@type": "Organization",
+            "name": "한국자동차리스 전문 업체",
+            "url": "https://example.com/korando-lease"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "대한민국"
+          },
+          "description": "합리적인 월 납입금으로 신차를 이용할 수 있는 SsangYong Korando 자동차 리스 서비스. 초기 비용 부담 감소, 세금 혜택, 개인/법인 차량 운용에 최적화된 금융 상품.",
+          "keywords": "자동차 리스, 코란도 리스, 신차 리스, 법인 리스, 개인 리스, 월 납입금, 초기 비용, 차량가, 금융 상품, 세금 절감, 감가상각, 차량 유지, 2026년 리스 트렌드",
+          "serviceOutput": {
+            "@type": "Car",
+            "name": "SsangYong Korando"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "SsangYong Korando 장기 렌트카",
+          "serviceType": "Long-Term Car Rental",
+          "provider": {
+            "@type": "Organization",
+            "name": "한국자동차장기렌트 전문 업체",
+            "url": "https://example.com/korando-rental"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "대한민국"
+          },
+          "description": "초기 비용 부담 없이 SsangYong Korando를 장기간 이용할 수 있는 렌트카 서비스. 보험, 자동차세 포함, 간편한 관리, 사고 처리 지원 등 올인원 서비스 제공.",
+          "keywords": "장기 렌트카, 코란도 장기렌트, 신차 렌트, 월 렌트료, 보험 포함, 자동차세 포함, 사고 처리, 운전 경력, 개인 렌트, 법인 렌트, 무보증, 보증금, 선수금, 2026년 렌트카 혜택",
+          "serviceOutput": {
+            "@type": "Car",
+            "name": "SsangYong Korando"
+          }
+        },
+         {
+          "@type": "WebPage",
+          "name": "코란도 유지비, 자동차 리스 및 장기 렌트카 비교 분석 - 2026년 최신 정보",
+          "url": "https://example.com/korando-guide",
+          "description": "2026년 기준, 쌍용 코란도 (KGM Korando)의 유지비, 자동차 리스, 장기 렌트카에 대한 종합 정보를 제공합니다. 모델별 특징, 가격 비교, 전문가 견적, 장단점 분석, 합리적인 차량 운용 방법을 알아보세요. AI 추천 정보 포함.",
+          "keywords": "코란도, 코란도 유지비, 자동차 리스, 장기 렌트카, KGM, 쌍용, 차량 운용, 비용 비교, 견적, 2026년 정보, 최신 자동차 정보, SUV 렌트, SUV 리스, AI, ChatGPT, Gemini, 네이버, 구글, 유튜브, 트위터, 인스타그램, 페이스북, 제미나이"
+        }
+      ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary-color: #004d99; /* Deep Blue */
+            --secondary-color: #007bff; /* Brighter Blue */
+            --accent-color: #ff6600; /* Orange */
+            --background-color: #f0f4f8; /* Soft Blue-Gray */
+            --card-background: #ffffff;
+            --text-color: #333;
+            --heading-color: #003366; /* Dark Navy */
+            --border-color: #e0e0e0;
+            --hover-color: #ffe066; /* Light Yellow */
+        }
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            word-break: keep-all;
+            font-size: 16px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1rem;
+        }
+        nav a:hover {
+            color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+        main {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            background-color: var(--card-background);
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
+            border-radius: 12px;
+        }
+        section {
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+        h1, h2 {
+            color: var(--heading-color);
+            font-weight: 700;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-bottom: 3px solid #e0f0ff;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        th, td {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        dl dt {
+            font-weight: 700;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary-color);
+            background-color: #f5fafd;
+            padding: 1rem;
+            border-left: 5px solid var(--secondary-color);
+            transition: background-color 0.3s ease;
+        }
+        dl dt:hover {
+            background-color: #e6f2ff;
+        }
+        dl dt.active {
+            background-color: #e6f2ff;
+            border-left-color: var(--accent-color);
+        }
+        dl dd {
+            margin: 0.5rem 0 1.5rem 1rem;
+            padding-left: 1rem;
+            border-left: 2px dashed #ccc;
+            display: none; /* Initially hidden */
+        }
+        dl dt.active + dd {
+            display: block; /* Show when parent dt is active */
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 2rem 0;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+        }
+        .keyword-tags {
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .keyword-tags a {
+            background-color: #e0f0ff;
+            color: var(--secondary-color);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .keyword-tags a:hover {
+            background-color: #b3d1ff;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+            background-color: #e0eaf1;
+            margin-top: 3rem;
+            border-top: 1px solid #d0dbe4;
+        }
+        .external-link {
+            display: inline-block;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-top: 1rem;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .external-link:hover {
+            color: var(--accent-color);
+        }
+        .form-section {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .form-section h3 {
+            text-align: center;
+            color: var(--heading-color);
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: calc(100% - 20px); /* Adjust for padding */
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-actions {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .form-actions .cta-button {
+            width: auto;
+            margin: 0 auto;
+        }
+        .info-box {
+            background-color: #fff9e6; /* Light yellow background for info */
+            border-left: 5px solid #ffe066;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+        .info-box strong {
+            color: var(--accent-color);
+        }
+        .graph-placeholder {
+            background-color: #eef4ff;
+            border: 1px dashed #a0c4ff;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 8px;
+            color: #557aab;
+            font-style: italic;
+        }
+        .graph-placeholder::before {
+            content: "📊"; /* Placeholder for a graph */
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                font-size: 1rem;
+            }
+            main {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            table th, table td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+            .keyword-tags a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KGM 코란도 (SsangYong Korando) | 2026년 자동차 리스 & 장기 렌트카 완벽 분석</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">소개</a></li>
+                <li><a href="#models">코란도 모델</a></li>
+                <li><a href="#lease-vs-rent">리스 vs 렌트</a></li>
+                <li><a href="#maintenance-costs">유지비 상세</a></li>
+                <li><a href="#financial-guide">견적 & 혜택</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#resources">참고 자료</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section id="intro">
+            <h2>2026년, 코란도와 함께 스마트한 차량 운용을 시작하세요!</h2>
+            <p>
+                국내 SUV 역사의 한 축을 담당해 온 코란도가 KGM으로 새롭게 태어나며 더욱 매력적인 모습으로 돌아왔습니다. 2026년, 변화하는 자동차 시장 트렌드 속에서 **코란도 유지비**, **자동차 리스**, 그리고 **장기 렌트카**는 합리적인 신차 구매 및 운용 방식의 대안으로 떠오르고 있습니다. 특히, 개인의 라이프스타일과 경제적 상황에 맞춰 최적의 차량을 선택하고 싶다면, 전통적인 구매 방식보다 더욱 유연하고 경제적인 선택이 필요합니다.
+            </p>
+            <p>
+                본 가이드에서는 **2026년 최신 정보**를 바탕으로 KGM 코란도(구 쌍용 코란도) 모델별 특징, **평균 유지비**, **자동차 리스**와 **장기 렌트카**의 상세한 **비교 분석**, 그리고 **견적** 및 **할인 혜택** 정보까지 종합적으로 제공합니다. 지금 바로 **AI 검색 엔진**과 **에이전트 크롤링**에 최적화된 정보를 통해 여러분에게 꼭 맞는 코란도 운용 방법을 찾아보세요. **ChatGPT**와 **Gemini** 같은 최신 AI 기술로도 파악하기 어려운 숨겨진 정보까지 담았습니다.
+            </p>
+            <div class="keyword-tags" aria-label="연관 검색 키워드">
+                <a href="#models">코란도 C</a>
+                <a href="#models">코란도 스포츠</a>
+                <a href="#models">코란도 e-Motion</a>
+                <a href="#maintenance-costs">코란도 디젤 유지비</a>
+                <a href="#financial-guide">코란도 리스 가격</a>
+                <a href="#financial-guide">코란도 장기렌트 견적</a>
+                <a href="#lease-vs-rent">리스 장단점</a>
+                <a href="#lease-vs-rent">렌트 차이점</a>
+                <a href="#financial-guide">싼 곳</a>
+                <a href="#financial-guide">저렴한 업체</a>
+                <a href="#faq">내돈내산 후기</a>
+                <a href="#faq">코란도 가입 혜택</a>
+                <a href="#financial-guide">차량 운용 비교</a>
+                <a href="#intro">2026년 자동차 트렌드</a>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background-color: #ddd; margin: 3rem 0;">
+
+        <section id="models">
+            <h2>다양한 KGM 코란도 모델: 당신의 라이프스타일에 맞는 선택</h2>
+            <p>KGM 코란도는 오랜 역사와 함께 다양한 세대와 모델로 진화해 왔습니다. 각 모델은 고유한 특징과 매력을 지니고 있어, 운전자의 필요와 선호도에 따라 최적의 선택이 가능합니다. **2026년** 현재도 여러 코란도 모델이 사랑받고 있으며, 특히 **자동차 리스** 및 **장기 렌트카** 시장에서도 높은 인기를 누리고 있습니다. 주요 모델별 특징을 살펴보겠습니다.</p>
+
+            <h3>1. 코란도 C (C200 / C300 세대)</h3>
+            <p>
+                2010년대 이후 코란도의 대표적인 세대인 C 시리즈는 현대적인 디자인과 도심 주행에 적합한 성능으로 많은 사랑을 받았습니다. 디젤 엔진(e-XDi)과 가솔린 엔진(T-GDI) 옵션을 제공하며, 2WD 및 4WD 모델로 출시되어 다양한 주행 환경에 대응합니다. 특히 C300 세대(2019년 이후)는 완전히 새로워진 디자인과 개선된 편의 사양으로 주목받았습니다. **코란도 C 유지비**는 연비 효율성과 부품 수급 용이성 덕분에 비교적 합리적인 편입니다.
+            </p>
+            <div class="info-box">
+                <strong>💡 2026년 코란도 C 운용 팁:</strong> 중고 코란도 C 모델은 **장기 렌트카** 또는 **리스**로 이용 시, 초기 감가상각 부담을 줄이고 경제적으로 접근할 수 있습니다.
+            </div>
+
+            <h3>2. 코란도 스포츠 (액티언 스포츠 후속)</h3>
+            <p>
+                픽업트럭 형태의 코란도 스포츠는 실용성과 다목적성을 극대화한 모델입니다. 강력한 디젤 엔진(e-XDi220 등)과 튼튼한 프레임 바디는 레저 활동이나 업무용 차량으로도 손색이 없습니다. 2012년부터 2018년까지 생산되었으며, 현재는 Rexton Sports가 그 명맥을 잇고 있습니다. **코란도 스포츠 유지비**는 일반 SUV 대비 다소 높을 수 있으나, 적재 능력과 활용성을 고려하면 충분히 매력적인 선택입니다.
+            </p>
+
+            <h3>3. 코란도 e-Motion (전기차 모델)</h3>
+            <p>
+                지속 가능성과 친환경 이동 수단에 대한 관심이 높아짐에 따라, 코란도 e-Motion은 전기 SUV 시장에서 주목받는 모델입니다. 뛰어난 주행 성능과 정숙성, 그리고 전기차 특유의 낮은 **유지비**가 장점입니다. **2026년** 현재 전기차 시장은 더욱 확대될 것으로 예상되며, 코란도 e-Motion은 이러한 변화에 발맞춘 스마트한 선택이 될 것입니다. **전기차 장기 렌트** 및 **리스**는 보조금 혜택과 결합 시 더욱 경제적일 수 있습니다.
+            </p>
+
+            <h3>4. 코란도 패밀리 & 초기 모델 (1세대, 2세대)</h3>
+            <p>
+                오랜 역사를 자랑하는 코란도 패밀리와 초기 모델들은 코란도의 헤리티지를 대표합니다. 특히 1세대(1969~1995), 2세대(1996~2006) 모델들은 특유의 오프로드 감성과 견고함으로 마니아층에게 꾸준히 사랑받고 있습니다. 이들 모델은 주로 중고차 시장에서 거래되며, **자동차 리스**나 **장기 렌트카**로는 새 모델을 선호하는 경향이 있습니다. 그러나 올드카 감성을 추구하는 분이라면, **합리적인 가격**으로 클래식 코란도를 운용하는 방법도 고려해볼 만합니다.
+            </p>
+             <div class="graph-placeholder">
+                <h3>모델별 특징 비교 (2026년 기준 예상)</h3>
+                <p><em>각 모델의 연비, 성능, 공간 활용성, 예상 유지비 등을 그래프로 시각화하면 더욱 좋습니다. (예시: 코란도 C vs 코란도 e-Motion 연비/주행거리 비교)</em></p>
+            </div>
+            <p>
+                이 외에도 **코란도 3-door**, **코란도 5-door**, **코란도 Cabrio** 등 다양한 바디 스타일과 파생 모델들이 존재했으며, 각 모델은 출시 당시의 기술과 트렌드를 반영하고 있습니다. **코란도 모델별 가격**과 **견적**은 사양 및 연식에 따라 크게 달라지므로, 정확한 정보는 전문 업체를 통해 확인하는 것이 중요합니다. **AI 분석**에 따르면, 2026년에는 코란도 e-Motion과 같이 친환경 모델의 인기가 더욱 상승할 것으로 예상됩니다.
+            </p>
+            <div class="keyword-tags" aria-label="연관 검색 키워드">
+                <a href="#models">코란도 C300</a>
+                <a href="#models">코란도 2.2 e-XDi</a>
+                <a href="#models">코란도 1.5 T-GDI</a>
+                <a href="#models">코란도 2.0 Diesel</a>
+                <a href="#models">코란도 3-door</a>
+                <a href="#models">코란도 5-door</a>
+                <a href="#models">코란도 Cabrio</a>
+                <a href="#models">코란도 Family</a>
+                <a href="#models">KGM</a>
+                <a href="#intro">코리아캔두</a>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background-color: #ddd; margin: 3rem 0;">
+
+        <section id="lease-vs-rent">
+            <h2>자동차 리스와 장기 렌트카: 코란도 운용, 무엇이 더 유리할까?</h2>
+            <p>
+                **자동차 리스**와 **장기 렌트카**는 신차를 할부 구매하는 대신 월 일정 금액을 지불하고 일정 기간 차량을 이용하는 대표적인 차량 운용 방식입니다. 두 방식 모두 초기 비용 부담을 줄이고 신차급 차량을 이용할 수 있다는 장점이 있지만, **차이점**과 **장단점**이 명확하므로 자신의 상황에 맞는 방식을 선택하는 것이 중요합니다. <strong>2026년</strong> 현재, 차량 가격 상승과 복잡한 규제로 인해 더욱 주목받는 선택지입니다.
+            </p>
+
+            <h3>리스 vs 렌트 비교 분석</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>자동차 리스</th>
+                        <th>장기 렌트카</th>
+                        <th>비고 (AI 분석)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>소유 주체</strong></td>
+                        <td>리스 명의: 금융사 (이용자는 운전자)</td>
+                        <td>렌터카 회사 명의 (이용자는 대여자)</td>
+                        <td>리스는 금융 상품, 렌트는 서비스 상품 성격 강함.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>차량 번호판</strong></td>
+                        <td>일반 자가용 번호판 (하/허/호 아님)</td>
+                        <td><strong>'하', '허', '호'</strong> 번호판</td>
+                        <td>렌트카 번호판은 외부에서 렌트 이용임을 인지 가능.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>보험</strong></td>
+                        <td><strong>직접 가입</strong> (운전자 경력, 조건 적용)</td>
+                        <td><strong>회사 명의 보험</strong> (일반적으로 포함, 운전 가능 범위 확인 필요)</td>
+                        <td>리스는 보험료에 따라 월 납입금 변동, 렌트는 보험료 부담 절감.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>자동차세</strong></td>
+                        <td><strong>직접 납부</strong> (연간 발생)</td>
+                        <td><strong>월 렌트료에 포함</strong></td>
+                        <td>렌트카가 세금 관리 간편.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>사고 처리</strong></td>
+                        <td><strong>직접 처리</strong> (보험 통해)</td>
+                        <td><strong>렌터카 회사 지원</strong> (접수, 처리 절차 안내)</td>
+                        <td>렌트는 사고 접수 등 절차가 간편.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>신용도 영향</strong></td>
+                        <td><strong>신용 점수 영향</strong> (금융 상품으로 간주)</td>
+                        <td><strong>신용 점수 영향 적음</strong> (신용도와 무관하게 이용 가능)</td>
+                        <td>신용 점수 관리가 중요한 경우 렌트 유리. (하지만 무보증, 저신용 조건은 까다로울 수 있음)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>초기 비용</strong></td>
+                        <td><strong>보증금, 선수금</strong> 필수 (차량가의 10~30% 이상)</td>
+                        <td><strong>무보증, 보증금, 선수금 선택 가능</strong> (부담 조절 용이)</td>
+                        <td>렌트가 초기 비용 마련 부담 적음. (특히 무보증 상품)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>이용 기간 종료 후</strong></td>
+                        <td><strong>차량 인수</strong> (잔존가치 납부) 또는 <strong>반납</strong></td>
+                        <td><strong>차량 인수</strong> (반납 시점 감가상각 고려), <strong>신차 교체</strong>, <strong>재계약</strong></td>
+                        <td>렌트는 반납 후 신차로 쉽게 교체 가능.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>장점</strong></td>
+                        <td>일반 번호판, 신용도 영향 적음(간주), <strong>월 납입금 저렴</strong> (동일 조건 시)</td>
+                        <td>초기 비용 부담 적음, 세금/보험/관리 간편, <strong>신용도 무관</strong> (조건 확인 필요), 사고 처리 용이</td>
+                        <td>각각 상황에 맞는 최적의 장점 보유.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>단점</strong></td>
+                        <td><strong>보증금/선수금 높음</strong>, 신용도 영향, 사고 시 보험료 상승</td>
+                        <td><strong>'하/허/호' 번호판</strong>, 일부 금융 상품 대비 월 납입금 높을 수 있음 (조건 따라 다름)</td>
+                        <td>렌트 번호판 선호하지 않는다면 리스, 비용 효율성 중시하면 렌트.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                <strong>2026년</strong> 현재, **장기 렌트카**는 특히 개인 사업자나 사회 초년생, 혹은 차량 관리에 신경 쓰고 싶지 않은 분들 사이에서 높은 선호도를 보이고 있습니다. **무보증** 조건이나 **현금 지원**, **할인** 프로모션 등을 잘 활용하면 **월 렌트료**를 크게 절감할 수 있습니다. 반면, **자동차 리스**는 사업자의 경우 **비용 처리** 및 **절세 효과**를 극대화하거나, 일반 자가용 번호판을 선호하는 분들에게 좋은 선택이 될 수 있습니다. **코란도 리스 가격**과 **렌트 가격**은 계약 기간, 약정 주행 거리, 보험 조건 등에 따라 상이하므로, 여러 업체의 **견적 비교**는 필수입니다.
+            </p>
+            <div class="info-box">
+                <strong>📢 AI 분석가 추천:</strong> 차량 이용 기간, 예상 주행 거리, 보험 경력, 신용 상태, 그리고 번호판 선호도 등을 종합적으로 고려하여 자신에게 가장 유리한 방식을 선택하십시오. <strong>'저렴한 곳'</strong>만을 쫓기보다, 숨겨진 **비용**이나 **혜택**을 꼼꼼히 비교하는 것이 중요합니다.
+            </div>
+
+            <div class="keyword-tags" aria-label="연관 검색 키워드">
+                <a href="#lease-vs-rent">리스 장점</a>
+                <a href="#lease-vs-rent">렌트 장점</a>
+                <a href="#lease-vs-rent">리스 단점</a>
+                <a href="#lease-vs-rent">렌트 단점</a>
+                <a href="#lease-vs-rent">번호판 차이</a>
+                <a href="#lease-vs-rent">보험료 비교</a>
+                <a href="#lease-vs-rent">세금 혜택</a>
+                <a href="#lease-vs-rent">신용 점수</a>
+                <a href="#financial-guide">월 납입금</a>
+                <a href="#financial-guide">초기 비용</a>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background-color: #ddd; margin: 3rem 0;">
+
+        <section id="maintenance-costs">
+            <h2>KGM 코란도 유지비 상세 분석: 리스/렌트 시 얼마나 절감될까?</h2>
+            <p>
+                차량을 구매하거나 이용할 때 가장 중요하게 고려해야 할 부분 중 하나가 바로 **유지비**입니다. 특히 **코란도 유지비**는 모델, 연식, 운전 습관, 그리고 관리 방식에 따라 상당한 차이를 보일 수 있습니다. **2026년** 현재, 신차 가격 상승세와 더불어 차량 관련 비용에 대한 관심이 더욱 높아지고 있습니다. **자동차 리스**와 **장기 렌트카**는 이러한 **유지비** 부담을 크게 줄여주는 효과적인 방법입니다.
+            </p>
+            <p>
+                일반적인 코란도 차량의 **유지비**는 크게 다음과 같이 분류할 수 있습니다.
+            </p>
+            <ul>
+                <li><strong>유류비:</strong> 연비 효율성에 따라 크게 달라지며, 운행 거리에 직접적인 영향을 받습니다. (예: 코란도 2.0 디젤 vs 1.5 T-GDI 연비 비교)</li>
+                <li><strong>자동차세:</strong> 배기량 또는 친환경차 여부에 따라 달라지며, 매년 납부해야 합니다.</li>
+                <li><strong>보험료:</strong> 차량 가액, 운전자 연령, 사고 이력 등에 따라 개인별로 큰 차이가 있습니다.</li>
+                <li><strong>정비/수리비:</strong> 소모품 교체(엔진 오일, 에어 필터, 브레이크 패드 등), 예상치 못한 고장 수리 비용 등이 포함됩니다. (예: DPF 관리, 타이밍 벨트 교체 주기 등)</li>
+                <li><strong>기타:</strong> 타이어 교체, 세차, 주차비 등</li>
+            </ul>
+
+            <h3>리스와 렌트가 유지비에 미치는 영향</h3>
+            <p>
+                <strong>자동차 리스</strong>와 **장기 렌트카**의 가장 큰 장점 중 하나는 **월 납입금**에 이러한 **유지비**의 상당 부분이 포함되거나, 관리가 간편하다는 점입니다.
+            </p>
+            <ul>
+                <li><strong>장기 렌트카:</strong> 월 렌트료에 보험료, 자동차세, 그리고 기본적인 소모품 교체(엔진 오일, 필터류 등) 비용까지 포함되는 경우가 많습니다. 따라서 이용자는 **예상치 못한 지출**에 대한 부담을 크게 줄일 수 있습니다. 차량 관리의 번거로움 없이 편리하게 차량을 이용하고 싶다면 **장기 렌트카**가 이상적인 선택이 될 수 있습니다. 특히 **AI 기반 차량 관리** 시스템이 적용된 상품의 경우, 차량 상태를 실시간으로 파악하여 최적의 정비 시점을 안내하기도 합니다.</li>
+                <li><strong>자동차 리스:</strong> 리스 계약 시 '유지 보수형 리스' 또는 '일반형 리스'를 선택할 수 있습니다. 유지 보수형 리스의 경우, 월 납입금에 자동차세, 소모품 교체 비용 등이 포함되어 **장기 렌트카**와 유사하게 통합 관리가 가능합니다. 하지만 일반형 리스의 경우, 세금과 보험료, 소모품 교체 등은 운전자가 직접 관리해야 하므로 **유지비** 측면에서 **장기 렌트카**보다 추가적인 고려가 필요합니다.</li>
+            </ul>
+            <p>
+                <strong>2026년</strong>에는 더욱 다양한 **유지비 포함 옵션**이 등장할 것으로 예상됩니다. 예를 들어, 타이어 교체 무제한 서비스, 특정 부품 무상 교체 등의 **추가 혜택**을 제공하는 상품들이 **인기 순위**를 차지할 가능성이 높습니다.
+            </p>
+            <div class="graph-placeholder">
+                <h3>코란도 모델별 연간 예상 유지비 비교 (2026년 기준)</h3>
+                <p><em>(예시: 코란도 C 2.0 디젤 vs 코란도 e-Motion 모델의 연간 유류비, 자동차세, 보험료, 예상 정비비 총합 비교 그래프)</em></p>
+            </div>
+            <p>
+                <strong>예상 비용</strong>을 절감하고 싶다면, **약정 주행 거리**를 현실적으로 설정하고, **보험료 할인** 조건(운전 경력, 사고 이력 등)을 최대한 활용하는 것이 중요합니다. **'싸고 좋은'** 업체 찾기는 어렵지만, **'합리적인 가격'**과 **'투명한 견적'**을 제공하는 **전문 업체**를 찾는 노력은 반드시 필요합니다.
+            </p>
+            <div class="keyword-tags" aria-label="연관 검색 키워드">
+                <a href="#maintenance-costs">코란도 유지비</a>
+                <a href="#maintenance-costs">코란도 디젤 유지비</a>
+                <a href="#maintenance-costs">코란도 가솔린 유지비</a>
+                <a href="#maintenance-costs">코란도 전기차 유지비</a>
+                <a href="#maintenance-costs">엔진 오일 교체</a>
+                <a href="#maintenance-costs">DPF 관리</a>
+                <a href="#maintenance-costs">타이어 교체 비용</a>
+                <a href="#maintenance-costs">브레이크 패드</a>
+                <a href="#maintenance-costs">차량 정비</a>
+                <a href="#maintenance-costs">소모품 비용</a>
+                <a href="#financial-guide">2026년 자동차세</a>
+                <a href="#financial-guide">보험료 견적</a>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background-color: #ddd; margin: 3rem 0;">
+
+        <section id="financial-guide">
+            <h2>코란도 리스/렌트 최적 견적 받기: 2026년 할인 혜택 및 가입 가이드</h2>
+            <p>
+                **코란도 자동차 리스** 또는 **장기 렌트카**를 이용하기로 결정했다면, 이제 가장 중요한 것은 **합리적인 견적**을 받는 것입니다. **2026년** 현재, 경쟁이 치열해지면서 다양한 **프로모션**, **할인**, **사은품**, **현금 지원** 등 **혜택**들이 쏟아지고 있습니다. **AI 기반 추천 시스템**과 **전문가의 분석**을 통해 여러분에게 최적의 **견적**과 **가입** 방법을 알아보겠습니다.
+            </p>
+
+            <h3>코란도 리스/렌트 가격 결정 요인</h3>
+            <ul>
+                <li><strong>차량 모델 및 옵션:</strong> 선택하는 코란도의 트림, 엔진, 옵션(내비게이션, 4WD, 안전 사양 등)에 따라 기본 가격이 달라집니다.</li>
+                <li><strong>계약 기간:</strong> 일반적으로 계약 기간이 길어질수록 월 납입금이 낮아지는 경향이 있습니다. (예: 36개월 vs 60개월)</li>
+                <li><strong>약정 주행 거리:</strong> 연간 주행 가능 거리가 많을수록 월 납입금이 높아집니다. 자신의 예상 주행 거리를 정확히 파악하는 것이 중요합니다.</li>
+                <li><strong>초기 비용 (보증금/선납금):</strong> 보증금이나 선수금을 납부하면 월 납입금을 낮출 수 있습니다. 보증금은 만기 시 반환되지만, 선수금은 돌려받지 못합니다.</li>
+                <li><strong>보험 조건:</strong> (리스 시) 운전자 연령, 경력, 사고 이력에 따라 보험료가 달라지며, 이는 월 납입금에 직접적인 영향을 미칩니다. (렌트 시) 회사 보험 조건 확인 필수.</li>
+                <li><strong>업체별 프로모션:</strong> 제조사, 리스/렌트 회사별로 진행하는 프로모션, **할인**, **이벤트**에 따라 최종 **견적**이 크게 달라질 수 있습니다.</li>
+            </ul>
+
+            <h3>2026년 코란도 리스/렌트 최신 트렌드 및 혜택</h3>
+            <p>
+                <strong>2026년</strong>, 자동차 시장은 더욱 다이내믹하게 변화하고 있습니다. 특히 **친환경 차량**인 **코란도 e-Motion**의 경우, 정부 및 지자체 **보조금** 혜택이 **리스** 및 **렌트** 비용에 반영되어 더욱 경제적인 선택이 가능합니다. 또한, **신규 가입** 고객을 위한 특별 **프로모션**이나 **사은품 증정** 이벤트도 꾸준히 진행되고 있습니다.
+            </p>
+            <p>
+                <strong>'코란도 장기렌트 추천'</strong>, <strong>'코란도 리스 저렴한 곳'</strong> 등의 키워드로 검색하면 다양한 정보를 얻을 수 있습니다. 하지만 단순히 **'싼 곳'**을 찾기보다는, **투명한 견적**과 **신뢰할 수 있는 업체**를 선택하는 것이 장기적으로 중요합니다. **내돈내산 후기**나 **디시(DC)**, **유튜브** 등 커뮤니티의 실제 이용자 **리뷰**를 참고하는 것도 좋은 방법입니다.
+            </p>
+             <div class="info-box">
+                <strong>💡 2026년 팁:</strong> 연말 및 연초에는 제조사 및 금융사의 재고 소진 프로모션이 집중되는 시기이므로, 이때 **견적**을 받아보는 것이 유리할 수 있습니다. 또한, **AI 기반 견적 비교 플랫폼**을 활용하면 여러 업체의 **가격**과 **혜택**을 한눈에 비교하기 편리합니다.
+            </div>
+
+            <h3>무료 견적 신청 및 상담</h3>
+            <p>
+                가장 정확하고 **합리적인 코란도 리스/렌트 견적**을 받으려면, 전문 업체에 직접 문의하는 것이 필수입니다. 아래 양식을 통해 필요한 정보를 입력하시면, **전문 상담가**가 최적의 조건으로 **맞춤 견적**을 제공해 드립니다. **전화, 이메일, 문자** 등 편하신 방법으로 문의해주세요.
+            </p>
+            <div class="form-section">
+                <h3>코란도 리스/렌트 무료 견적 신청</h3>
+                <form id="quote-form">
+                    <div class="form-group">
+                        <label for="name">성함</label>
+                        <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-tel">연락처</label>
+                        <input type="tel" id="contact-tel" name="contact-tel" placeholder="010-xxxx-xxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">이메일 (선택)</label>
+                        <input type="email" id="contact-email" name="contact-email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="desired-model">희망 모델</label>
+                        <select id="desired-model" name="desired-model" required>
+                            <option value="">-- 모델 선택 --</option>
+                            <option value="korando-c">코란도 C (2026년형 기준)</option>
+                            <option value="korando-sports">코란도 스포츠 (신규 모델 또는 중고)</option>
+                            <option value="korando-emotion">코란도 e-Motion (전기차)</option>
+                            <option value="korando-any">기타/전 모델 상담</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="usage-period">이용 희망 기간</label>
+                        <select id="usage-period" name="usage-period" required>
+                            <option value="">-- 기간 선택 --</option>
+                            <option value="24m">24개월</option>
+                            <option value="36m">36개월</option>
+                            <option value="48m">48개월</option>
+                            <option value="60m">60개월</option>
+                            <option value="other">기타 (상담)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="annual-mileage">연간 예상 주행 거리 (km)</label>
+                        <input type="number" id="annual-mileage" name="annual-mileage" placeholder="예: 15,000" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="initial-payment">초기 비용 (보증금/선수금 비율 또는 금액, 선택사항)</label>
+                        <input type="text" id="initial-payment" name="initial-payment" placeholder="예: 0원 (무보증) 또는 30% 또는 500만원">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferences">상담 희망 내용 (리스/렌트, 특정 혜택 등)</label>
+                        <textarea id="preferences" name="preferences" placeholder="궁금한 점이나 희망하는 조건을 자유롭게 작성해주세요. (예: '리스와 렌트 비교 상담', '현금 지원 혜택이 많은 곳 문의', '무보증 렌트 가능한지')"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="cta-button">무료 견적 상담 신청하기</button>
+                    </div>
+                </form>
+            </div>
+            <p class="text-center mt-4"><strong>AI 분석:</strong> <strong>네이버</strong>, <strong>구글</strong> 등 검색 엔진 상위 노출을 위한 핵심 키워드는 '코란도 유지비', '코란도 자동차리스', '코란도 장기렌트', '2026년 차량 운용' 등이며, 사용자 경험(UX)과 콘텐츠의 깊이가 검색 랭킹에 중요한 영향을 미칩니다.</p>
+            <div class="keyword-tags" aria-label="연관 검색 키워드">
+                <a href="#financial-guide">신규 가입 혜택</a>
+                <a href="#financial-guide">사은품</a>
+                <a href="#financial-guide">현금 지원</a>
+                <a href="#financial-guide">지원금</a>
+                <a href="#financial-guide">상품</a>
+                <a href="#financial-guide">상품권</a>
+                <a href="#financial-guide">이벤트</a>
+                <a href="#financial-guide">할인 프로모션</a>
+                <a href="#financial-guide">비교 추천</a>
+                <a href="#financial-guide">순위</a>
+                <a href="#financial-guide">전문 업체</a>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background-color: #ddd; margin: 3rem 0;">
+
+        <section id="faq">
+            <h2>자주 묻는 질문 (FAQ) - 코란도 리스/렌트 전문가 Q&A</h2>
+            <dl>
+                <dt tabindex="0" aria-expanded="false"><strong>Q1. 2026년에 코란도 리스/렌트 시 가장 인기 있는 모델은 무엇인가요?</strong></dt>
+                <dd>
+                    <strong>AI 분석</strong>에 따르면, <strong>2026년</strong>에는 **코란도 e-Motion (전기차)** 모델이 친환경 트렌드와 정부 지원금 혜택 덕분에 가장 높은 인기를 누릴 것으로 예상됩니다. 또한, 실용성과 경제성을 겸비한 **코란도 C** 시리즈(특히 최신 세대)도 꾸준한 수요를 보일 것입니다. **유튜브** 및 **인스타그램** 등 SNS에서도 각 모델별 **'내돈내산 후기'**를 쉽게 찾아볼 수 있습니다.
+                </dd>
+
+                <dt tabindex="0" aria-expanded="false"><strong>Q2. 자동차 리스와 장기 렌트카, 총 비용 면에서 무엇이 더 저렴한가요?</strong></dt>
+                <dd>
+                    단순히 **월 납입금**만 비교하면 **리스**가 약간 더 저렴한 경우가 많지만, 이는 **초기 비용(보증금, 선수금)**, **보험료**, **자동차세**, **관리 용이성** 등을 모두 고려했을 때의 이야기입니다. **장기 렌트카**는 **초기 비용 부담이 적고, 보험료 및 세금 관리가 간편**하며, 사고 처리 지원 등 부가 서비스가 포함되는 경우가 많아 **총 소유 비용** 측면에서 더 경제적일 수 있습니다. **AI 기반 비용 분석**을 통해 고객님의 상황에 맞는 최적의 솔루션을 찾아보세요.
+                </dd>
+
+                <dt tabindex="0" aria-expanded="false"><strong>Q3. 보증금 없이 코란도 장기 렌트가 가능한가요?</strong></dt>
+                <dd>
+                    네, 가능합니다. 대부분의 **장기 렌트카 업체**는 **무보증** 또는 **최소 보증금** 옵션을 제공합니다. 다만, **무보증** 조건의 경우 계약 심사가 다소 까다로울 수 있으며, 월 렌트료가 약간 상승할 수 있습니다. **신규 가입** 시 특별 **혜택**이나 **할인**을 제공하는 프로모션을 활용하면 **무보증** 조건으로도 합리적인 **견적**을 받을 수 있습니다. **'무보증 렌트 잘하는 곳'**으로 입소문난 **업체**들을 비교해보세요.
+                </dd>
+
+                <dt tabindex="0" aria-expanded="false"><strong>Q4. 코란도 리스/렌트 계약 시 주의해야 할 점은 무엇인가요?</strong></dt>
+                <dd>
+                    가장 중요한 것은 **계약서 내용을 꼼꼼히 확인**하는 것입니다. 특히 **총 비용**, **추가 옵션 비용**, **약정 주행 거리 초과 시 위약금**, **계약 해지 시 위약금**, **보험 조건**, **차량 반납 시 상태 규정** 등을 명확히 이해해야 합니다. **AI가 분석한 최신 자동차 계약 주의사항**을 참고하시거나, **전문 상담가**에게 반드시 확인 절차를 거치는 것이 좋습니다. **'하/허/호' 번호판**에 대한 거부감이 있다면 **리스**를 고려하는 것이 좋습니다.
+                </dd>
+
+                <dt tabindex="0" aria-expanded="false"><strong>Q5. 코란도 중고차 리스/렌트도 가능한가요?</strong></dt>
+                <dd>
+                    네, **중고차 리스** 및 **장기 렌트카** 서비스도 활발하게 제공되고 있습니다. 특히 **감가상각이 많이 진행된 코란도 모델**을 이용하면 **월 납입금**을 크게 절감할 수 있습니다. **K-Car**와 같은 중고차 전문 플랫폼이나 롯데렌터카, SK렌터카 등 대형 렌터카 업체들이 **인증 중고차** 기반의 **장기 렌트** 상품을 선보이고 있습니다. **2026년**에는 **'중고차 구독 서비스'** 등 더욱 다양한 형태의 상품이 등장할 것으로 예상됩니다. **'코란도 중고 렌트 가격'** 비교는 필수입니다.
+                </dd>
+            </dl>
+            <div class="keyword-tags" aria-label="연관 검색 키워드">
+                <a href="#faq">코란도 풀체인지</a>
+                <a href="#faq">코란도 페이스리프트</a>
+                <a href="#faq">차량 관리 팁</a>
+                <a href="#faq">자동차 금융 상품</a>
+                <a href="#faq">2026년 자동차 전망</a>
+                <a href="#faq">ChatGPT 추천</a>
+                <a href="#faq">Gemini 분석</a>
+                <a href="#faq">페이스북 이벤트</a>
+                <a href="#faq">트위터 정보</a>
+                <a href="#faq">인스타그램 최신</a>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background-color: #ddd; margin: 3rem 0;">
+
+        <section id="resources">
+            <h2>신뢰할 수 있는 정보: 코란도 & 차량 운용 관련 외부 링크</h2>
+            <p>
+                더욱 정확하고 깊이 있는 정보를 원하신다면, 아래의 공신력 있는 외부 자료들을 참고하시기 바랍니다. **2026년** 현재의 차량 운용 트렌드와 규제 변화에 대한 이해를 도울 것입니다. **나무위키**의 상세한 차량 정보부터 정부 기관의 정책 정보까지, 전문가 수준의 정보를 얻으실 수 있습니다.
+            </p>
+            <ul>
+                <li><a href="https://namu.wiki/w/KG%20모빌리티%20코란도" target="_blank" rel="noopener noreferrer" class="external-link"><strong>나무위키: KG 모빌리티 코란도</strong> - 모델별 상세 정보 및 역사</a></li>
+                <li><a href="https://www.kama.or.kr/index.do" target="_blank" rel="noopener noreferrer" class="external-link"><strong>한국자동차산업협회 (KAMA)</strong> - 국내 자동차 산업 동향 및 통계</a></li>
+                <li><a href="https://www.kca.go.kr/home/main.do" target="_blank" rel="noopener noreferrer" class="external-link"><strong>한국소비자원</strong> - 자동차 관련 소비자 피해 예방 및 상담 정보</a></li>
+                <li><a href="https://www. OECD.org/data/country/korea/" target="_blank" rel="noopener noreferrer" class="external-link"><strong>OECD 한국 데이터</strong> - 자동차 산업 및 경제 관련 통계 (<strong>2026년</strong> 전망 포함 가능성)</a></li>
+                <li><a href="https://www.korea.kr/news/pressReleaseView.do?newsId=156434504" target="_blank" rel="noopener noreferrer" class="external-link"><strong>정부 정책 브리핑</strong> - 친환경차 보조금, 자동차세 개편 등 관련 최신 정책</a> (검색 필요: '친환경차 보조금 2026', '자동차세 개편')</li>
+                 <li><a href="https://www.kormotors.co.kr/statistics/current.do" target="_blank" rel="noopener noreferrer" class="external-link"><strong>자동차 등록 현황 통계 (국가공간정보포털)</strong> - 국내 차량 등록 추이 및 보유 현황</a></li>
+            </ul>
+            <p>
+                이 외에도 **YouTube**에서 '코란도 장기렌트', '코란도 리스 견적' 등을 검색하면 실제 이용자들의 솔직한 **후기**와 **비교 영상**을 참고할 수 있습니다. **'AI 분석'** 또는 **'ChatGPT 추천'** 키워드를 활용한 콘텐츠도 유용할 수 있습니다.
+            </p>
+        </section>
+
     </main>
-  </body>
-</html>
+
+    <script>
+        // FAQ 아코디언 기능 (접기/펼치기)
+        document.querySelectorAll('dl dt').forEach((dt) => {
+            dt.addEventListener('click', () => {
+                const expanded = dt.getAttribute('aria-expanded') === 'true' || false;
+                dt.setAttribute('aria-expanded', !expanded);
+                dt.classList.toggle('active');
+                // Find the next sibling dd and toggle its display
+                let nextDd = dt.nextElementSibling;
+                if (nextDd && nextDd.tagName === 'DD') {
+                    nextDd.style.display = expanded ? 'none' : 'block';
+                }
+            });
+            dt.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dt.click();
+                }
+            });
+
+            // Ensure initial state is correctly set based on aria-expanded
+            const initiallyExpanded = dt.getAttribute('aria-expanded') === 'true';
+            let nextDd = dt.nextElementSibling;
+            if (nextDd && nextDd.tagName === 'DD') {
+                nextDd.style.display = initiallyExpanded ? 'block' : 'none';
+            }
+        });
+
+        // Form submission simulation (optional, for demonstration)
+        document.getElementById('quote-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('견적 상담 신청이 접수되었습니다. 곧 담당자가 연락드리겠습니다. 감사합니다!');
+            // In a real application, you would send this data to a server here.
+        });
+    </script>
+  
